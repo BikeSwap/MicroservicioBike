@@ -30,16 +30,12 @@ public class BikeController {
 
     @PostMapping
     public ResponseEntity<BikeResource> createSalesAgent(@RequestBody CreateBikeResource createBikeResource){
-
         var createBikeCommand = CreateBikeCommandFromResourceAssembler.toCommandFromResource(createBikeResource);
         var bikeId = bikeCommandService.handle(createBikeCommand);
         if (bikeId == 0L) return ResponseEntity.badRequest().build();
-
         var getSalesAgemtByIdQuery = new GetBikeById(bikeId);
-
         var bike = bikeQueryService.handle(getSalesAgemtByIdQuery);
         if (bike.isEmpty()) return ResponseEntity.notFound().build();
-
         var bikeResource = BikeResourceFromEntityAssembler.toResourceFromEntity(bike.get());
         return new ResponseEntity<>(bikeResource, HttpStatus.CREATED);
     }
