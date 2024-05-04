@@ -11,14 +11,14 @@ public class OpenApiConfiguration {
     @Bean
     public OpenAPI houseonsalePlatformOpenApi(){
         return new OpenAPI()
-                .info(new Info().title("Motion platform")
+                .info(new Info().title("CycleScape platform")
                         .description(
-                                "Motion.com Platform application REST API documentation"
-                        + "@author: Angie Ruiz Carhuamaca")
+                                "CycleScape.com Platform application REST API documentation"
+                        + "@author: BikeSwap")
                         .version("v1.0.0")
                         .license(new License().name("Apache 2.0").url("https://springgoc.org")))
                 .externalDocs(new ExternalDocumentation()
-                        .description("Motion.com Platform with Documentation")
-                        .url("https://Motion-platform.wik.github.org/docs"));
+                        .description("CycleScape.com Platform with Documentation")
+                        .url("https://CycleScape-platform.wik.github.org/docs"));
     }
 }
