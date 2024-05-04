@@ -7,9 +7,8 @@ import com.tp.bike.platform.bike.bycicle.domain.services.BikeQueryService;
 import com.tp.bike.platform.bike.infraestructure.persistence.jpa.repositories.BikeRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
-
+import java.util.List;
 @Service
 public class BikeQueryServiceImpl implements BikeQueryService {
     private final BikeRepository bikeRepository;
@@ -19,8 +18,8 @@ public class BikeQueryServiceImpl implements BikeQueryService {
     }
 
     @Override
-    public Optional<Bike> handle(GetBikeById query) {
-        return bikeRepository.findById(query.id());
+    public Optional<Bike> handle(GetBikeById bikeById) {
+        return bikeRepository.findById(bikeById.bikeId());
     }
 
     @Override
